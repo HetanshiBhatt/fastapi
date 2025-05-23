@@ -1,13 +1,7 @@
+# index.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
-
-marks_data = {
-    "A": 10,
-    "B": 20,
-    "C": 30,
-    "D": 40
-}
 
 app = FastAPI()
 
@@ -18,6 +12,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+marks_data = {
+    "A": 10,
+    "B": 20,
+    "C": 30,
+    "D": 40
+}
 
 @app.get("/api")
 async def get_marks(name: List[str] = []):
